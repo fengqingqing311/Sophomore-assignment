@@ -75,7 +75,7 @@
         margin: 30px auto;
         box-shadow: 0px 0px 5px rgba(118,118,118,0.5);
         text-align: center;
-        background-color: #D2691E;
+        background: linear-gradient(90deg,deepskyblue, hotpink, rgb(208, 255, 0), deepskyblue);
         z-index: 0;
         position: absolute;
         left:30%;
@@ -111,11 +111,11 @@
         margin-bottom: 25px;
         border: 1px solid #d03d3d;        
     }
-    a{
+    #register{
       position: absolute;
-      left:50%;
-      top:50%;
-      padding:20px 100px;
+      top:270px;
+      right:-50px;
+      padding:20px 20px;
       text-decoration: none;
       border-radius:50px;
       color:#fff;
@@ -124,12 +124,12 @@
       transform: translate(-50%,-50%);
       z-index: 1;
     }
-    a::before{
+    #register::before{
       content:'';
       position: absolute;
       left:-5px;
       top:-5px;
-      right:-5px;
+      right:-53px;
       bottom:-5px;
       border-radius:50px;
       background: linear-gradient(90deg,deepskyblue, hotpink, rgb(208, 255, 0), deepskyblue);
@@ -138,10 +138,10 @@
       z-index: -1;
 
     }
-    a:hover{
+    #register:hover{
       animation: sun 8s linear infinite;
     }
-    a:hover::before{
+    #register:hover::before{
       animation: sun 8s linear infinite;
     }
     @keyframes sun{
@@ -166,7 +166,7 @@
                     <a href="#">忘记用户名？</a>
                 </td>
                 <td>
-                    <a href="">免费注册</a>
+                     <input type="submit" value="免费注册" id="register"/><br>
                 </td>         
             </dr>
 		</div>       
@@ -187,7 +187,7 @@
     <script>
         var clear = document.getElementById("clear");
         var signIn = document.getElementById("signIn");
-        var sign = document.getElementById("sign");
+        var sign = document.getElementById("register");
         var login = document.getElementById("login");
         var user = document.getElementById("user");
         var password = document.getElementById("password");
