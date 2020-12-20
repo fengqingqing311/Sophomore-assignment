@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    #signIn #clear:after {
+        content: '';
+        display: block;
+        height: 0;
+        clear: both;
+    }
+    #clear{
+    	height: 350px;
+        width: 370px;
+        margin: 30px auto;
+        background-image: url(images/logo.png);
+        box-shadow: 0px 0px 5px rgba(118,118,118,0.5);
+        text-align: center;
+        z-index: 0;
+        position: absolute;
+        left:30%;
+    }
+    .id{
+    	font-size: 18px;
+    	font-weight: bold;
+    	margin-top: 30px;
+
+    }
+    .user{
+    	width: 270px;
+        height: 30px;
+        margin-top: 20px;
+        margin-bottom: 25px;
+        border: 1px solid #d03d3d;
+    }
+    .password{
+    	width: 270px;
+        height: 30px;
+        margin-bottom: 25px;
+        border: 1px solid #d03d3d;        
+    }
+    .logins{
+    	width: 340px;
+        height: 40px;
+        margin-bottom: 25px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #d03d3d;
+        border: 1px solid #d03d3d;
+    }
+
+    :focus {
+        outline: none;
+    }
+    .footer{
+        margin-left: 150px;
+        margin-top: 20px;
+    	font-size: 12px;
+    	color: #000;
+    }
+    a{
+        text-decoration: none;
+        color: #00FF00;
+    }
+    #signIn{
+        height: 350px;
+        width: 370px;
+        margin: 30px auto;
+        box-shadow: 0px 0px 5px rgba(118,118,118,0.5);
+        text-align: center;
+        background-color: #D2691E;
+        z-index: 0;
+        position: absolute;
+        left:30%;
+    }
+    #login{
+        width: 340px;
+        height: 40px;
+        margin-bottom: 25px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #d03d3d;
+        border: 1px solid #d03d3d;
+    }
+    #sign{
+        background-image: url(../images/login-button.png);
+    }
+    #user{
+        width: 270px;
+        height: 30px;
+        margin-top: 20px;
+        margin-bottom: 25px;
+        border: 1px solid #d03d3d;
+    }
+    #password{
+        width: 270px;
+        height: 30px;
+        margin-bottom: 25px;
+        border: 1px solid #d03d3d;        
+    }
+    #repassword{
+        width: 270px;
+        height: 30px;
+        margin-bottom: 25px;
+        border: 1px solid #d03d3d;        
+    }
+    a{
+      position: absolute;
+      left:50%;
+      top:50%;
+      padding:20px 100px;
+      text-decoration: none;
+      border-radius:50px;
+      color:#fff;
+      background: linear-gradient(90deg,deepskyblue, hotpink, rgb(208, 255, 0), deepskyblue);
+      background-size: 400%;
+      transform: translate(-50%,-50%);
+      z-index: 1;
+    }
+    a::before{
+      content:'';
+      position: absolute;
+      left:-5px;
+      top:-5px;
+      right:-5px;
+      bottom:-5px;
+      border-radius:50px;
+      background: linear-gradient(90deg,deepskyblue, hotpink, rgb(208, 255, 0), deepskyblue);
+      background-size: 400%;
+      filter: blur(20px);
+      z-index: -1;
+
+    }
+    a:hover{
+      animation: sun 8s linear infinite;
+    }
+    a:hover::before{
+      animation: sun 8s linear infinite;
+    }
+    @keyframes sun{
+      100%{background-position:400% 0;}
+    }
+</style>
+<body>
+	<div id="clear">
+		<p class="id">账号登陆</p>
+		<div>
+			<form method="post" action="">
+				用户名：<input type="text" name="username" class="user"/><br>
+				密码:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="password" name="password" value="" class="password"/><br>
+				<input type="submit" value="登录" class="logins"/><br>
+			</form>
+			<dr>
+                <td>
+                    <a href="#">忘记密码？</a>
+                </td>
+                <td>
+                    <a href="#">忘记用户名？</a>
+                </td>
+                <td>
+                    <a href="">免费注册</a>
+                </td>         
+            </dr>
+		</div>       
+	</div>
+    <div id = "signIn" style="display: none;" >
+        <p class="id">账号注册</p>
+        <div>
+            <form method="post" action="">
+                用户名：<input type="text" name="username" id="user"/><br>
+                密码:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="password" name="password" value="" id="password"/><br>
+                确认密码:
+                <input type="password" name="password" value="" id="repassword"/><br>
+                <input type="submit" value="注册" id="login"/><br>
+            </form>     
+        </div>        
+    </div>
+    <script>
+        var clear = document.getElementById("clear");
+        var signIn = document.getElementById("signIn");
+        var sign = document.getElementById("sign");
+        var login = document.getElementById("login");
+        var user = document.getElementById("user");
+        var password = document.getElementById("password");
+        var repassword = document.getElementById("repassword");
+        sign.onclick=function(){
+            clear.style.display="none";
+            signIn.style.display="block";
+        }
+        login.onclick=function(){
+            if(password.value==repassword.value&&user.value!=""&&password.value!=""&&repassword.value!=""){
+                alert("注册成功！")
+                clear.style.display="block";
+                signIn.style.display="none";
+            }else{
+                alert("未输入内容或两次输入密码不同，注册失败");
+                password.value="";
+                repassword.value="";
+                event.preventDefault();
+            }
+        }
+    </script>
+</body>
+</html>
